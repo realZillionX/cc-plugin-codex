@@ -1,0 +1,67 @@
+{
+  "name": "cc-plugin-codex",
+  "version": "1.0.0",
+  "description": "Claude Code Plugin for Codex",
+  "type": "module",
+  "author": {
+    "name": "realZillionX",
+    "email": "chanzillion@gmail.com",
+    "url": "https://github.com/realZillionX"
+  },
+  "homepage": "https://github.com/realZillionX/cc-plugin-codex",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realZillionX/cc-plugin-codex.git"
+  },
+  "bin": "scripts/installer-cli.mjs",
+  "bugs": {
+    "url": "https://github.com/realZillionX/cc-plugin-codex/issues"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    ".codex-plugin",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "agents",
+    "assets",
+    "hooks",
+    "package.json",
+    "prompts",
+    "schemas",
+    "scripts",
+    "skills"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json",
+    "check:changelog": "node scripts/check-changelog.mjs",
+    "check:version-sync": "node scripts/check-version-sync.mjs",
+    "sync:plugin-version": "node scripts/sync-plugin-version.mjs",
+    "check": "npm run check:version-sync && npm run check:changelog && npm run lint && npm run typecheck && npm run test && npm run test:integration && npm run test:e2e",
+    "install:codex": "node scripts/installer-cli.mjs install",
+    "prepack": "npm run check:version-sync && npm run check:changelog",
+    "setup:git-hooks": "node scripts/setup-git-hooks.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:cross-platform": "npm run test",
+    "test:integration": "npm run test",
+    "test:e2e": "npm run test",
+    "uninstall:codex": "node scripts/installer-cli.mjs uninstall",
+    "update:codex": "node scripts/installer-cli.mjs update",
+    "version": "npm run sync:plugin-version && npm run check:version-sync && npm run check:changelog"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.0",
+    "globals": "^17.5.0",
+    "typescript": "^6.0.2"
+  }
+}

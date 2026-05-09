@@ -1,0 +1,4 @@
+name: run
+description: Run Claude Code through the minimal mailbox protocol.
+tools:
+  - functions.exec_command

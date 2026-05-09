@@ -1,0 +1,46 @@
+{
+  "name": "cc",
+  "version": "1.0.0",
+  "description": "Claude Code Plugin for Codex. Run Claude Code through a minimal mailbox protocol from inside Codex.",
+  "author": {
+    "name": "realZillionX",
+    "email": "chanzillion@gmail.com",
+    "url": "https://github.com/realZillionX"
+  },
+  "homepage": "https://github.com/realZillionX/cc-plugin-codex",
+  "repository": "https://github.com/realZillionX/cc-plugin-codex",
+  "license": "Apache-2.0",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "mailbox",
+    "task-runner",
+    "agent"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Claude Code",
+    "shortDescription": "Claude Code Plugin for Codex",
+    "longDescription": "Use Claude Code from inside Codex through a minimal mailbox protocol. Codex owns reasoning, Claude Code owns delegated execution, and normal output stays limited to run, status, cancel, and setup flows.",
+    "developerName": "realZillionX",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/realZillionX/cc-plugin-codex",
+    "privacyPolicyURL": "https://github.com/realZillionX/cc-plugin-codex#privacy",
+    "termsOfServiceURL": "https://github.com/realZillionX/cc-plugin-codex#license",
+    "defaultPrompt": [
+      "Run Claude Code on this task through $cc:run",
+      "Check the Claude Code mailbox with $cc:status",
+      "Verify Claude Code setup with $cc:setup"
+    ],
+    "brandColor": "#7B39FE",
+    "composerIcon": "./assets/cc-small.svg",
+    "logo": "./assets/cc-plugin-codex.png",
+    "screenshots": [
+      "./assets/cc-plugin-codex-screenshot-1.png"
+    ]
+  }
+}
