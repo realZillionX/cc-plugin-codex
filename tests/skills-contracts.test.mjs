@@ -48,3 +48,18 @@ test("setup skill uses current hooks feature flag", () => {
   assert.match(setup, /\[features\]\.hooks/);
   assert.match(setup, /not deprecated `\[features\]\.codex_hooks`/);
 });
+
+test("OpenAI agent metadata uses cc-prefixed skill display names", () => {
+  const expected = new Map([
+    ["cancel", "cc:cancel"],
+    ["run", "cc:run"],
+    ["setup", "cc:setup"],
+    ["status", "cc:status"],
+  ]);
+
+  for (const [skillName, displayName] of expected) {
+    const metadata = read(`skills/${skillName}/agents/openai.yaml`);
+    assert.match(metadata, new RegExp(`display_name: "${displayName}"`));
+    assert.doesNotMatch(metadata, /display_name: "Claude Code /);
+  }
+});
