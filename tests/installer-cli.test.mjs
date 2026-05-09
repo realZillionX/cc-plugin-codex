@@ -1151,6 +1151,19 @@ describe("installer-cli", () => {
     assert.ok(!fs.existsSync(path.dirname(versionedCacheDir)));
   });
 
+  it("tolerates non-directory cache entries during uninstall", () => {
+    const homeDir = makeTempHome();
+    const sourceRoot = makeTempSource();
+    const fakeCodex = createFakeCodex(homeDir);
+    copyFixture(sourceRoot);
+
+    const cacheRoot = path.join(homeDir, ".codex", "plugins", "cache");
+    fs.mkdirSync(cacheRoot, { recursive: true });
+    fs.writeFileSync(path.join(cacheRoot, ".DS_Store"), "", "utf8");
+
+    runInstaller("uninstall", homeDir, sourceRoot, fakeCodex.env);
+  });
+
   it("removes managed hook commands that point at versioned marketplace cache roots", () => {
     const homeDir = makeTempHome();
     const sourceRoot = makeTempSource();

@@ -55,7 +55,16 @@ function ensureEmptyDir(dirPath) {
 }
 
 function removeIfEmpty(dirPath) {
-  if (!fs.existsSync(dirPath)) {
+  let stat;
+  try {
+    stat = fs.statSync(dirPath);
+  } catch (error) {
+    if (error?.code === "ENOENT" || error?.code === "ENOTDIR") {
+      return;
+    }
+    throw error;
+  }
+  if (!stat.isDirectory()) {
     return;
   }
   if (fs.readdirSync(dirPath).length === 0) {
