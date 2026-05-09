@@ -12,6 +12,7 @@ import { spawnSync } from "node:child_process";
 import { collectReviewContext, getWorkingTreeFingerprint } from "../scripts/lib/git.mjs";
 
 const tempRepos = [];
+const WINDOWS_CLEANUP_ERROR_CODES = new Set(["EBUSY", "ENOTEMPTY", "EPERM"]);
 
 function runGit(cwd, args) {
   const result = spawnSync("git", args, {
@@ -31,14 +32,38 @@ function createRepo() {
   return dir;
 }
 
+function sleepSync(milliseconds) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds);
+}
+
+function removeTempRepo(dir) {
+  const maxAttempts = process.platform === "win32" ? 30 : 1;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      fs.rmSync(dir, {
+        recursive: true,
+        force: true,
+        maxRetries: 10,
+        retryDelay: 200,
+      });
+      return;
+    } catch (error) {
+      const canRetry =
+        process.platform === "win32" &&
+        WINDOWS_CLEANUP_ERROR_CODES.has(error?.code) &&
+        attempt < maxAttempts;
+      if (!canRetry) {
+        throw error;
+      }
+      sleepSync(250);
+    }
+  }
+}
+
 afterEach(() => {
   while (tempRepos.length > 0) {
-    fs.rmSync(tempRepos.pop(), {
-      recursive: true,
-      force: true,
-      maxRetries: 5,
-      retryDelay: 100,
-    });
+    removeTempRepo(tempRepos.pop());
   }
 });
 
