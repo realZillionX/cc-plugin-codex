@@ -1,5 +1,5 @@
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  */
 import test from "node:test";
@@ -410,7 +410,7 @@ test("does not self-clean managed hooks when config.toml is malformed", () => {
   }
 });
 
-test("skips explicit status/result prompts and viewed jobs", () => {
+test("skips explicit status prompts and viewed jobs", () => {
   const testEnv = createEnv();
   try {
     writeJob(testEnv, {

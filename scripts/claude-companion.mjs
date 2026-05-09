@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  *
  * Derived from OpenAI's codex-plugin-cc and modified for Claude Code delegation.

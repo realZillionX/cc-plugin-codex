@@ -4,7 +4,7 @@ No active tasks.
 
 # Project Overview
 
-`cc-plugin-codex` is an independent realZillionX-maintained Codex plugin that exposes Claude Code as a companion executor through a minimal mailbox protocol. The desired boundary is that Codex owns reasoning, Claude Code owns delegated execution, and the plugin owns local process and mailbox state.
+`@realzillionx/cc-plugin-codex` is an independent realZillionX-maintained Codex plugin that exposes Claude Code as a companion executor through a minimal mailbox protocol. The desired boundary is that Codex owns reasoning, Claude Code owns delegated execution, and the plugin owns local process and mailbox state.
 
 The public Agent-facing contract should be small: one general execution interface, status, cancel, and setup. Normal status must not inject raw Claude Code output or runtime identifiers into model context. Public JSON output follows the same mailbox boundary and must not return stored job objects. Foreground `run` completion must return Claude Code's final reply because that is the delegated task result Codex needs in order to continue. Background launch, completion hooks, and later status checks remain mailbox-only unless the user explicitly asks for the resulting work product. Running work may expose one normalized lifecycle progress line plus abstract lifecycle metadata such as phase, elapsed time, and last activity. Failures should expose a normalized, actionable reason directly in status.
 

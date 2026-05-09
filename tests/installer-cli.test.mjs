@@ -1,5 +1,5 @@
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -55,10 +55,8 @@ function copyFixture(sourceRoot) {
     "LICENSE",
     "NOTICE",
     "README.md",
-    "agents",
     "assets",
     "hooks",
-    "internal-skills",
     "package.json",
     "prompts",
     "schemas",
@@ -77,8 +75,8 @@ function copyFixture(sourceRoot) {
   }
 }
 
-function copyMarketplaceFixture(sourceRoot, marketplaceName = "sendbird") {
-  const marketplaceRoot = path.join(sourceRoot, "sendbird-marketplace");
+function copyMarketplaceFixture(sourceRoot, marketplaceName = "realzillionx") {
+  const marketplaceRoot = path.join(sourceRoot, "realzillionx-marketplace");
   const pluginRoot = path.join(marketplaceRoot, "plugins", "cc");
   copyFixture(pluginRoot);
   fs.mkdirSync(path.join(marketplaceRoot, ".agents", "plugins"), { recursive: true });
@@ -87,7 +85,7 @@ function copyMarketplaceFixture(sourceRoot, marketplaceName = "sendbird") {
     `${JSON.stringify(
       {
         name: marketplaceName,
-        interface: { displayName: "Sendbird Plugins" },
+        interface: { displayName: "realZillionX Plugins" },
         plugins: [
           {
             name: "cc",
@@ -842,7 +840,7 @@ describe("installer-cli", () => {
     runInstaller("install", homeDir, sourceRoot, {
       ...fakeCodex.env,
       CC_PLUGIN_CODEX_MARKETPLACE_SOURCE: marketplaceRoot,
-      CC_PLUGIN_CODEX_MARKETPLACE_NAME: "sendbird",
+      CC_PLUGIN_CODEX_MARKETPLACE_NAME: "realzillionx",
     });
 
     const configFile = path.join(homeDir, ".codex", "config.toml");
@@ -851,14 +849,14 @@ describe("installer-cli", () => {
     const requests = readFakeCodexLog(fakeCodex.logPath);
     const pluginInstallRequest = requests.find((request) => request.method === "plugin/install");
 
-    assert.match(config, /\[plugins\."cc@sendbird"\]/);
+    assert.match(config, /\[plugins\."cc@realzillionx"\]/);
     assert.ok(
       requests.some((request) => request.method === "marketplace/add"),
       "installer should prefer Codex marketplace/add when a marketplace source is configured"
     );
     assert.equal(
       pluginInstallRequest?.params?.marketplacePath,
-      path.join(homeDir, ".codex", "marketplaces", "sendbird", ".agents", "plugins", "marketplace.json")
+      path.join(homeDir, ".codex", "marketplaces", "realzillionx", ".agents", "plugins", "marketplace.json")
     );
     assert.ok(
       !fs.existsSync(marketplaceFile),
@@ -876,16 +874,16 @@ describe("installer-cli", () => {
     const result = runInstaller("install", homeDir, sourceRoot, {
       ...fakeCodex.env,
       CC_PLUGIN_CODEX_MARKETPLACE_SOURCE: marketplaceRoot,
-      CC_PLUGIN_CODEX_MARKETPLACE_NAME: "sendbird",
+      CC_PLUGIN_CODEX_MARKETPLACE_NAME: "realzillionx",
     });
 
     const marketplaceFile = path.join(homeDir, ".agents", "plugins", "marketplace.json");
     const marketplace = JSON.parse(fs.readFileSync(marketplaceFile, "utf8"));
     const config = fs.readFileSync(path.join(homeDir, ".codex", "config.toml"), "utf8");
 
-    assert.equal(marketplace.name, "sendbird");
+    assert.equal(marketplace.name, "realzillionx");
     assert.equal(marketplace.plugins[0].name, "cc");
-    assert.match(config, /\[plugins\."cc@sendbird"\]/);
+    assert.match(config, /\[plugins\."cc@realzillionx"\]/);
     assert.match(result.stderr, /marketplace\/add unavailable/i);
     assert.match(result.stderr, /config fallback/i);
   });
@@ -917,7 +915,7 @@ describe("installer-cli", () => {
 
     assert.match(result.stderr, /Unsupported --plugin-root/i);
     assert.match(result.stderr.replace(/\\/g, "/"), new RegExp(expectedInstallDir.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-    assert.match(result.stderr, /npx cc-plugin-codex install/i);
+    assert.match(result.stderr, /npx @realzillionx\/cc-plugin-codex install/i);
   });
 
   it("installs successfully when CODEX_HOME is outside the user's home directory", () => {
@@ -1099,7 +1097,7 @@ describe("installer-cli", () => {
 
     fs.appendFileSync(
       path.join(homeDir, ".codex", "config.toml"),
-      '\n[plugins."cc@sendbird"]\nenabled = true\n',
+      '\n[plugins."cc@realzillionx"]\nenabled = true\n',
       "utf8"
     );
 
@@ -1117,7 +1115,7 @@ describe("installer-cli", () => {
     assert.equal(marketplace.plugins[0].name, "other");
     assert.match(config, /\[plugins\."github@openai-curated"\]/);
     assert.doesNotMatch(config, /\[plugins\."cc@local-plugins"\]/);
-    assert.doesNotMatch(config, /\[plugins\."cc@sendbird"\]/);
+    assert.doesNotMatch(config, /\[plugins\."cc@realzillionx"\]/);
     assert.equal(hooks.hooks.SessionStart[0].hooks[0].command, "echo custom-hook");
   });
 
@@ -1134,14 +1132,14 @@ describe("installer-cli", () => {
       ".codex",
       "plugins",
       "cache",
-      "sendbird",
+      "realzillionx",
       "cc",
       "1.0.8"
     );
     fs.mkdirSync(path.join(versionedCacheDir, "skills"), { recursive: true });
     fs.appendFileSync(
       path.join(homeDir, ".codex", "config.toml"),
-      '\n[plugins."cc@sendbird"]\nenabled = true\n',
+      '\n[plugins."cc@realzillionx"]\nenabled = true\n',
       "utf8"
     );
 
@@ -1177,7 +1175,7 @@ describe("installer-cli", () => {
       codexDir,
       "plugins",
       "cache",
-      "sendbird",
+      "realzillionx",
       "cc",
       "1.0.9"
     );
@@ -1186,7 +1184,7 @@ describe("installer-cli", () => {
     fs.mkdirSync(path.join(versionedCacheDir, "hooks"), { recursive: true });
     fs.appendFileSync(
       path.join(codexDir, "config.toml"),
-      '\n[plugins."cc@sendbird"]\nenabled = true\n',
+      '\n[plugins."cc@realzillionx"]\nenabled = true\n',
       "utf8"
     );
     fs.writeFileSync(

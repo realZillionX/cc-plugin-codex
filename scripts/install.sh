@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copyright 2026 Sendbird, Inc.
+# Copyright 2026 realZillionX.
 # SPDX-License-Identifier: Apache-2.0
 
 set -euo pipefail

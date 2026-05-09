@@ -81,7 +81,7 @@
   <text x="152" y="116" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="20" fill="#8888AA" letter-spacing="1">Plugin for Codex</text>
 
   <!-- Tagline -->
-  <text x="64" y="172" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="24" fill="#B0B0C8">Delegate code reviews, design challenges, and rescue tasks from Codex to Claude Code.</text>
+  <text x="64" y="172" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="24" fill="#B0B0C8">Run Claude Code from Codex through a minimal mailbox protocol.</text>
 
   <!-- Badges -->
   <g transform="translate(990, 64)">
@@ -102,7 +102,7 @@
 
   <!-- ============ FEATURE CARDS ============ -->
 
-  <!-- Card 1: $cc:review -->
+  <!-- Card 1: $cc:run -->
   <g filter="url(#cardSh)">
     <rect x="64" y="228" width="416" height="310" rx="20" fill="#12122A"/>
   </g>
@@ -116,21 +116,21 @@
     <line x1="30" y1="30" x2="40" y2="40" stroke="#7B39FE" stroke-width="3" stroke-linecap="round"/>
     <path d="M16 16l8 8" stroke="#7B39FE" stroke-width="2" stroke-linecap="round" opacity=".5"/>
   </g>
-  <text x="150" y="290" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="28" font-weight="700" fill="#FFFFFF">$cc:review</text>
+  <text x="150" y="290" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="28" font-weight="700" fill="#FFFFFF">$cc:run</text>
 
-  <text x="96" y="336" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Run a standard Claude Code review on</text>
-  <text x="96" y="360" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">your current working tree or branch diff.</text>
-  <text x="96" y="388" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#8888AA">Read-only. Safe to run anytime.</text>
+  <text x="96" y="336" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Start one Claude Code request from Codex.</text>
+  <text x="96" y="360" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Use --write when edits are allowed.</text>
+  <text x="96" y="388" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#8888AA">Foreground runs return the final reply.</text>
 
   <!-- Example usage -->
   <rect x="88" y="420" width="368" height="36" rx="8" fill="#0A0A18"/>
   <text x="104" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#7B39FE">$</text>
-  <text x="118" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#D0D0E0">$cc:review --base main</text>
+  <text x="118" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#D0D0E0">$cc:run inspect the diff</text>
 
   <!-- Usage args -->
-  <text x="96" y="494" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="12" fill="#666680">--wait  --background  --base  --scope  --model</text>
+  <text x="96" y="494" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="12" fill="#666680">--wait  --background  --write  --model  --effort</text>
 
-  <!-- Card 2: $cc:adversarial-review -->
+  <!-- Card 2: $cc:status -->
   <g filter="url(#cardSh)">
     <rect x="512" y="228" width="416" height="310" rx="20" fill="#12122A"/>
   </g>
@@ -143,19 +143,19 @@
     <line x1="20" y1="18" x2="20" y2="28" stroke="#E040FB" stroke-width="3" stroke-linecap="round"/>
     <circle cx="20" cy="33" r="1.5" fill="#E040FB"/>
   </g>
-  <text x="598" y="290" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="24" font-weight="700" fill="#FFFFFF">$cc:adversarial-review</text>
+  <text x="598" y="290" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="28" font-weight="700" fill="#FFFFFF">$cc:status</text>
 
-  <text x="544" y="336" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Challenge design choices, assumptions,</text>
-  <text x="544" y="360" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">and tradeoffs before you ship.</text>
-  <text x="544" y="388" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#8888AA">Steerable focus. Read-only.</text>
+  <text x="544" y="336" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Show the current Claude Code mailbox.</text>
+  <text x="544" y="360" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Lifecycle-level progress only.</text>
+  <text x="544" y="388" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#8888AA">No raw output or internal ids.</text>
 
   <rect x="536" y="420" width="368" height="36" rx="8" fill="#0A0A18"/>
   <text x="552" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#E040FB">$</text>
-  <text x="566" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#D0D0E0">$cc:adversarial-review</text>
+  <text x="566" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#D0D0E0">$cc:status</text>
 
-  <text x="544" y="494" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="12" fill="#666680">--wait  --background  --base  --scope  --model  [focus]</text>
+  <text x="544" y="494" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="12" fill="#666680">--all  --json</text>
 
-  <!-- Card 3: $cc:rescue -->
+  <!-- Card 3: $cc:setup -->
   <g filter="url(#cardSh)">
     <rect x="960" y="228" width="416" height="310" rx="20" fill="#12122A"/>
   </g>
@@ -166,17 +166,17 @@
   <g transform="translate(992, 262)">
     <path d="M32 8a14 14 0 0 0-18 18l-8 8 6 6 8-8a14 14 0 0 0 18-18l-6 6-4 0 0-4z" fill="none" stroke="#00BCD4" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
-  <text x="1046" y="290" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="28" font-weight="700" fill="#FFFFFF">$cc:rescue</text>
+  <text x="1046" y="290" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="28" font-weight="700" fill="#FFFFFF">$cc:setup</text>
 
-  <text x="992" y="336" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Delegate substantial implementation or</text>
-  <text x="992" y="360" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">debugging work to Claude Code.</text>
-  <text x="992" y="388" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#8888AA">Writable. Tracked background jobs.</text>
+  <text x="992" y="336" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">Verify Claude Code CLI, Codex hooks,</text>
+  <text x="992" y="360" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#B0B0C8">and optional review gate state.</text>
+  <text x="992" y="388" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="17" fill="#8888AA">Safe to rerun any time.</text>
 
   <rect x="984" y="420" width="368" height="36" rx="8" fill="#0A0A18"/>
   <text x="1000" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#00BCD4">$</text>
-  <text x="1014" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#D0D0E0">$cc:rescue fix the failing test</text>
+  <text x="1014" y="444" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#D0D0E0">$cc:setup</text>
 
-  <text x="992" y="494" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="12" fill="#666680">--background  --wait  --resume  --write  --model  --effort</text>
+  <text x="992" y="494" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="12" fill="#666680">--enable-review-gate  --disable-review-gate</text>
 
   <!-- ============ TERMINAL DEMO ============ -->
 
@@ -195,54 +195,51 @@
   <text x="720" y="595" text-anchor="middle" font-family="SF Mono, Menlo, monospace" font-size="13" fill="#8B949E">Terminal — Typical Workflow</text>
 
   <!-- Terminal content -->
-  <!-- Line 1: review command -->
+  <!-- Line 1: run command -->
   <text x="96" y="640" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#7B39FE">&#x276F;</text>
-  <text x="116" y="640" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#E6EDF3">$cc:review --background</text>
+  <text x="116" y="640" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#E6EDF3">$cc:run --background inspect the current diff</text>
   <!-- Line 2: output -->
   <text x="116" y="666" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#3FB950">&#x2713;</text>
-  <text x="136" y="666" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">Background job started:</text>
-  <text x="370" y="666" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#58A6FF">task-a1b2c3</text>
+  <text x="136" y="666" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">Background request started.</text>
 
   <!-- Line 3: status command -->
   <text x="96" y="700" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#7B39FE">&#x276F;</text>
   <text x="116" y="700" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#E6EDF3">$cc:status</text>
   <!-- Line 4: status output -->
   <text x="116" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#FFA657">&#x25CF;</text>
-  <text x="136" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">task-a1b2c3</text>
-  <text x="272" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#B07BFF">review</text>
-  <text x="344" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#FFA657">running</text>
-  <text x="432" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">45s</text>
+  <text x="136" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">Claude Code</text>
+  <text x="272" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#FFA657">running</text>
+  <text x="360" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">45s</text>
+  <text x="420" y="726" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">latest: responding</text>
 
-  <!-- Line 5: result command -->
+  <!-- Line 5: cancel command -->
   <text x="96" y="760" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#7B39FE">&#x276F;</text>
-  <text x="116" y="760" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#E6EDF3">$cc:result</text>
-  <!-- Line 6: result output -->
+  <text x="116" y="760" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#E6EDF3">$cc:cancel</text>
+  <!-- Line 6: cancel output -->
   <text x="116" y="786" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#3FB950">&#x2713;</text>
-  <text x="136" y="786" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">Review complete.</text>
-  <text x="304" y="786" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#E6EDF3">3 findings</text>
-  <text x="404" y="786" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">across 5 files.</text>
+  <text x="136" y="786" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="15" fill="#8B949E">Active Claude Code request stopped.</text>
 
   <!-- Right side of terminal: additional commands info -->
   <line x1="720" y1="624" x2="720" y2="804" stroke="#FFFFFF" stroke-opacity=".06" stroke-width="1"/>
 
-  <text x="760" y="648" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="16" font-weight="600" fill="#B0B0C8">Job management</text>
+  <text x="760" y="648" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="16" font-weight="600" fill="#B0B0C8">Mailbox commands</text>
 
-  <text x="760" y="684" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#7B39FE">$cc:status</text>
-  <text x="920" y="684" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Live progress of running jobs</text>
+  <text x="760" y="684" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#7B39FE">$cc:run</text>
+  <text x="920" y="684" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Start a delegated request</text>
 
-  <text x="760" y="714" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#7B39FE">$cc:result</text>
-  <text x="920" y="714" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Stored output from finished jobs</text>
+  <text x="760" y="714" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#7B39FE">$cc:status</text>
+  <text x="920" y="714" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Show mailbox state</text>
 
   <text x="760" y="744" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#7B39FE">$cc:cancel</text>
-  <text x="920" y="744" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Stop an active background job</text>
+  <text x="920" y="744" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Stop active work</text>
 
   <text x="760" y="774" font-family="SF Mono, Fira Code, Menlo, monospace" font-size="14" fill="#7B39FE">$cc:setup</text>
-  <text x="920" y="774" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Verify install and review-gate state</text>
+  <text x="920" y="774" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="14" fill="#666680">Verify install and hooks</text>
 
   <!-- ============ FOOTER ============ -->
   <text x="64" y="870" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="15" fill="#555570">Built by</text>
-  <text x="132" y="870" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="15" font-weight="600" fill="#8888AA">Sendbird</text>
+  <text x="132" y="870" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="15" font-weight="600" fill="#8888AA">realZillionX</text>
   <text x="220" y="870" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="15" fill="#333348">|</text>
-  <text x="240" y="870" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="15" fill="#555570">github.com/sendbird/cc-plugin-codex</text>
+  <text x="240" y="870" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="15" fill="#555570">github.com/realZillionX/cc-plugin-codex</text>
   <text x="1376" y="870" text-anchor="end" font-family="Inter, SF Pro Display, -apple-system, system-ui, sans-serif" font-size="15" fill="#555570">Apache-2.0</text>
 </svg>

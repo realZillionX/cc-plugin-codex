@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -109,7 +109,7 @@ function parseStopReviewOutput(rawOutput) {
       rawOutput: text,
       firstLine: "",
       reason:
-        "The stop-time Claude Code review returned no output. Run $cc:review --wait manually or bypass the gate."
+        "The stop-time Claude Code review returned no output. Run $cc:run --wait review the current changes manually or bypass the gate."
     };
   }
 
@@ -156,7 +156,7 @@ function parseStopReviewOutput(rawOutput) {
     rawOutput: text,
     firstLine,
     reason:
-      "The stop-time Claude Code review returned an unexpected answer. Run $cc:review --wait manually or bypass the gate."
+      "The stop-time Claude Code review returned an unexpected answer. Run $cc:run --wait review the current changes manually or bypass the gate."
   };
 }
 
@@ -193,7 +193,7 @@ async function runStopReview(cwd, input = {}) {
         promptBytes,
         reason: detail
           ? `The stop-time Claude Code review failed: ${detail}`
-          : "The stop-time Claude Code review failed. Run $cc:review --wait manually or bypass the gate."
+          : "The stop-time Claude Code review failed. Run $cc:run --wait review the current changes manually or bypass the gate."
       };
     }
 

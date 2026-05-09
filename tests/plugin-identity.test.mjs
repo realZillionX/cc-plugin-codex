@@ -1,5 +1,5 @@
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -33,7 +33,7 @@ describe("plugin identity helpers", () => {
 
   it("parses managed plugin sections for arbitrary marketplace names", () => {
     const config = [
-      pluginConfigHeader("sendbird"),
+      pluginConfigHeader("realzillionx"),
       "enabled = true",
       "",
       pluginConfigHeader("local-plugins"),
@@ -43,8 +43,8 @@ describe("plugin identity helpers", () => {
 
     assert.deepEqual(parseManagedPluginSections(config), [
       {
-        pluginId: pluginIdForMarketplace("sendbird"),
-        marketplaceName: "sendbird",
+        pluginId: pluginIdForMarketplace("realzillionx"),
+        marketplaceName: "realzillionx",
         enabled: true,
       },
       {
@@ -62,7 +62,7 @@ describe("plugin identity helpers", () => {
     fs.mkdirSync(path.join(codexHome, "plugins", "cache", "local-plugins", "cc", "local"), {
       recursive: true,
     });
-    fs.mkdirSync(path.join(codexHome, "plugins", "cache", "sendbird", "cc", "1.0.8"), {
+    fs.mkdirSync(path.join(codexHome, "plugins", "cache", "realzillionx", "cc", "1.0.8"), {
       recursive: true,
     });
 
@@ -73,7 +73,7 @@ describe("plugin identity helpers", () => {
       })),
       [
         { marketplaceName: "local-plugins", cacheEntryName: "local" },
-        { marketplaceName: "sendbird", cacheEntryName: "1.0.8" },
+        { marketplaceName: "realzillionx", cacheEntryName: "1.0.8" },
       ]
     );
   });
@@ -84,18 +84,18 @@ describe("plugin identity helpers", () => {
 
     fs.writeFileSync(
       path.join(codexHome, "config.toml"),
-      `${pluginConfigHeader("sendbird")}\nenabled = true\n`,
+      `${pluginConfigHeader("realzillionx")}\nenabled = true\n`,
       "utf8"
     );
-    fs.mkdirSync(path.join(codexHome, "plugins", "cache", "sendbird", "cc", "1.0.9"), {
+    fs.mkdirSync(path.join(codexHome, "plugins", "cache", "realzillionx", "cc", "1.0.9"), {
       recursive: true,
     });
 
     const signals = getManagedPluginSignals(codexHome);
 
     assert.equal(signals.configState, "active");
-    assert.equal(signals.activeSection?.marketplaceName, "sendbird");
+    assert.equal(signals.activeSection?.marketplaceName, "realzillionx");
     assert.equal(signals.cachePresent, true);
-    assert.equal(getPreferredMarketplaceName("local-plugins", codexHome), "sendbird");
+    assert.equal(getPreferredMarketplaceName("local-plugins", codexHome), "realzillionx");
   });
 });

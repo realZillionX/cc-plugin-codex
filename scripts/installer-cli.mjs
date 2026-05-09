@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -25,10 +25,8 @@ const INCLUDED_PATHS = [
   "LICENSE",
   "NOTICE",
   "README.md",
-  "agents",
   "assets",
   "hooks",
-  "internal-skills",
   "package.json",
   "prompts",
   "schemas",

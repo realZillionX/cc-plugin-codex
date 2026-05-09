@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -128,7 +128,7 @@ function assertSupportedPluginRoot(pluginRoot) {
   throw new Error(
     `Unsupported --plugin-root ${pluginRoot}. ` +
       `For a local checkout install, clone the plugin into ${INSTALLED_PLUGIN_ROOT} and rerun this script there, ` +
-      `or use \`npx cc-plugin-codex install\` from any checkout.`
+      `or use \`npx @realzillionx/cc-plugin-codex install\` from any checkout.`
   );
 }
 

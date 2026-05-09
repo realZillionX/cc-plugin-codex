@@ -3,6 +3,7 @@
 ## v2.0.0
 
 - Release the simplified mailbox-only Claude Code bridge with `$cc:run`, `$cc:status`, `$cc:cancel`, and `$cc:setup` as the public surface.
+- Publish the npm package under the scoped `@realzillionx/cc-plugin-codex` name and align visible repository ownership metadata with realZillionX.
 - Normalize OpenAI agent skill display names to the canonical `$cc:*` command surface.
 - Keep status and cancel skill metadata aligned with the minimal mailbox public contract.
 

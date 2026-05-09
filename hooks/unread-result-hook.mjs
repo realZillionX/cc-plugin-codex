@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright 2026 Sendbird, Inc.
+ * Copyright 2026 realZillionX.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,7 +22,7 @@ const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 
 function isExplicitClaudeStatusRequest(prompt) {
   const text = String(prompt ?? "").toLowerCase();
-  return text.includes("$cc:status") || text.includes("$cc:result");
+  return text.includes("$cc:status");
 }
 
 function processName(job) {

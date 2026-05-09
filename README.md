@@ -2,7 +2,7 @@
 
 Run Claude Code from Codex through a minimal mailbox protocol.
 
-`cc-plugin-codex` is a small collaboration bridge:
+`@realzillionx/cc-plugin-codex` is a small collaboration bridge:
 
 - Codex owns reasoning and decides what to do next.
 - Claude Code owns delegated execution for a clearly scoped request.
@@ -20,7 +20,7 @@ The public Agent-facing surface is intentionally small:
 Legacy review-oriented commands may exist for compatibility during migration, but they are not the default interface and should not be recommended for ordinary use.
 Direct legacy runtime commands are disabled by default outside the public mailbox interface.
 
-This repository is an independent realZillionX-maintained release derived from Sendbird's Apache-2.0 `cc-plugin-codex`.
+This repository is maintained by realZillionX.
 
 ## Quick Start
 
@@ -39,7 +39,13 @@ claude auth login
 
 ### Install
 
-Use the GitHub package directly:
+Use the published npm package:
+
+```bash
+npx @realzillionx/cc-plugin-codex install
+```
+
+Or use the GitHub package directly:
 
 ```bash
 npx github:realZillionX/cc-plugin-codex install
